@@ -13,16 +13,12 @@ asciiLogo = r'''
 #initial welcome function
 def initLoop():
     os.system('clear');
-    time.sleep(0.7);
-    print('⚙ ...Caricamento meccanismi elfici... ⚙');
-    time.sleep(2);
-    os.system('clear');
     time.sleep(0.3);
-    print('[ 🧝🏻‍♀️ Benvenuto nella ELF-CLI! 🎄 ]');
+    print('[ 🧝🏻‍♀️ Welcome to the ELF-CLI! 🎄 ]');
     time.sleep(0.3);
     print(asciiLogo);
     time.sleep(0.1);
-    print('[ 🌨  Strumento industriale per la riparazione della produzione della neve. ]')
+    print('[ 🌨  Official snow production fixing tool. ]')
 
 #principal loop for getting the commands from the user
 def mainLoop():
