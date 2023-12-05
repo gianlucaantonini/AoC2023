@@ -96,16 +96,54 @@ def D1P1():
 def debugD1P2():
     values = getLinesFromTextFile('inputs/d1p2/puzzleInputExample.txt')
     pprint(values);
-    spelledNumbers = ['one','two','three','four','five','six','seven','eight','nine']
+    spelledNumbers = ['one','two','three','four','five','six','seven','eight','nine'];
+    counter = 1;
     convertedValues = [];
     for value in values:
-        for spelledNumber in spelledNumbers:
-            while value.find(spelledNumber) != -1:
-                value = value.replace(spelledNumber,str(convertSpelledNumber(spelledNumber)));
-        print (value)
-            
+        charStack = "";
+        for character in value:
+            charStack += character
+            for spelledNumber in spelledNumbers:
+                if charStack.find(spelledNumber) != -1:
+                    charStack = charStack.replace(spelledNumber,str(counter));
+                counter += 1;
+            counter = 1;                    charStack = charStack.replace(spelledNumber,str(convertSpelledNumber(spelledNumber)));
+        convertedValues.append(charStack);
+    pprint(convertedValues);
 
-    pprint(values);
+    sumStack = 0
+    for value in convertedValues:
+        print(" ");
+        print(value);
+        calibrationValue = getStringFirstDigit(value) + getStringLastDigit(value);
+        print(getStringFirstDigit(value));
+        print(getStringLastDigit(value));
+        print(calibrationValue);
+        print(" ");            
+        sumStack += int(calibrationValue);
+    print('The sum of all of the calibration values is: ' + str(sumStack));
+    return
 
-    #print(s.replace('a', ''))
+# main function
+def D1P2():
+    values = getLinesFromTextFile('inputs/d1p2/puzzleInput.txt')
+    spelledNumbers = ['one','two','three','four','five','six','seven','eight','nine'];
+    counter = 1;
+    convertedValues = [];
+    for value in values:
+        charStack = "";
+        for character in value:
+            charStack += character
+            for spelledNumber in spelledNumbers:
+                if charStack.find(spelledNumber) != -1:
+                    charStack = charStack.replace(spelledNumber,str(counter));
+                counter += 1;
+            counter = 1;
+        convertedValues.append(charStack);
+
+    sumStack = 0
+    for value in convertedValues:
+        calibrationValue = getStringFirstDigit(value) + getStringLastDigit(value);
+        sumStack += int(calibrationValue);
+    print('The sum of all of the calibration values is: ' + str(sumStack));
     return
