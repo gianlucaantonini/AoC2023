@@ -26,6 +26,10 @@ def commandsLoop(command):
         functions.debugD1P1()
     elif command == 'd1p1':
         functions.D1P1()
+    elif command == 'd1p2 --debug':
+        functions.debugD1P2()
+    elif command == 'd1p2':
+        functions.D1P2()
     
     else:
         print('[ ❌ Command not found! ❌ ]');
