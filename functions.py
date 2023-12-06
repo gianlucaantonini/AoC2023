@@ -149,3 +149,62 @@ def D1P2():
         sumStack += int(calibrationValue);   
     print('The sum of all of the calibration values is: ' + str(sumStack));
     return
+
+# main function
+def debug():
+    values = getLinesFromTextFile('inputs/d2p1/puzzleInputExample.txt');
+    gameIndexSplitted = values[0].split(": ");
+    setOfGames = gameIndexSplitted[1].split("; ");
+    individualGames = setOfGames[0].split(", ");
+    individualValues = individualGames[0].split(" ");
+   # pprint(gameIndexSplitted);
+   # pprint(setOfGames);
+   # pprint(individualGames);
+   # pprint(individualValues);
+
+    gameIndexSplittedList = [];
+    counterID = 1;
+    sumStack = 0;
+    redStack = 0;
+    greenStack = 0;
+    blueStack = 0;
+    for value in values:
+        gameIndexSplitted = value.split(": ");
+        setOfGames = gameIndexSplitted[1].split("; ");
+        for value in setOfGames:
+            print (counterID);
+            individualGames = value.split(", ");
+            for value in individualGames:
+                individualValues = value.split(" ");
+                cubeColor = individualValues[1];
+                cubeValue = individualValues[0];
+                if cubeColor == "red":
+                    redStack += int(cubeValue);
+                if cubeColor == "green":
+                    greenStack += int(cubeValue);
+                if cubeColor == "blue":
+                    blueStack += int(cubeValue);
+                print(individualValues);
+                print(cubeColor);
+
+            print(individualGames);
+
+            
+        if (redStack <= 12) and (greenStack <= 13) and (blueStack <= 14):
+            sumStack += counterID;
+        counterID += 1;
+        redStack = 0;
+        greenStack = 0;
+        blueStack = 0;
+
+
+
+
+    
+
+    print('The sum of all of the calibration values is: ' + str(sumStack));
+    return
+
+# main function
+def D2P1():
+    return

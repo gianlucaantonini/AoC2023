@@ -22,6 +22,8 @@ def commandsLoop(command):
         time.sleep(0.3);
         print(asciiLogo);
     #custom commands
+    elif command == 'debug':
+        functions.debug()    
     elif command == 'd1p1 --debug':
         functions.debugD1P1()
     elif command == 'd1p1':
@@ -30,6 +32,10 @@ def commandsLoop(command):
         functions.debugD1P2()
     elif command == 'd1p2':
         functions.D1P2()
+    elif command == 'd2p1 --debug':
+        functions.debugD2P1()
+    elif command == 'd2p1':
+        functions.D2P1()
     
     else:
         print('[ ❌ Command not found! ❌ ]');

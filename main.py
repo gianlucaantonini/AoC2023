@@ -14,7 +14,7 @@ asciiLogo = r'''
 def initLoop():
     os.system('clear');
     time.sleep(0.3);
-    print('[ 🧝🏻‍♀️ Welcome to the ELF-CLI! 🎄 ]');
+    print('[ 🎄 Welcome to the ELF-CLI! 🎄 ]');
     time.sleep(0.3);
     print(asciiLogo);
     time.sleep(0.1);
@@ -22,7 +22,7 @@ def initLoop():
 
 #principal loop for getting the commands from the user
 def mainLoop():
-    command = input('[✨] ');
+    command = input('[❄︎] ');
     if command == '':
         restartLoop();
     commands.commandsLoop(command);
