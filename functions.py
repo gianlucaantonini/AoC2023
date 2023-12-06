@@ -12,6 +12,7 @@ def getStringLastDigit(string):
         if characters.isdigit():
             return characters;
 
+#function for reading text files
 def getLinesFromTextFile(filePath):
     # Open the text file
     with open(filePath, 'r') as file:
@@ -23,28 +24,6 @@ def getLinesFromTextFile(filePath):
             value = line.strip();  
             values.append(value);
     return(values)
-
-def convertSpelledNumber(spelledNumber):
-    match spelledNumber:
-        case 'one':
-            return 1
-        case 'two':
-            return 2
-        case 'three':
-            return 3
-        case 'four':
-            return 4
-        case 'five':
-            return 5
-        case 'six':
-            return 6
-        case 'seven':
-            return 7
-        case 'eight':
-            return 8
-        case 'nine':
-            return 9
-    return convertedNumber
 
 # main function
 def debugD1P1():
@@ -107,7 +86,7 @@ def debugD1P2():
                 if charStack.find(spelledNumber) != -1:
                     charStack = charStack.replace(spelledNumber,str(counter));
                 counter += 1;
-            counter = 1;                    charStack = charStack.replace(spelledNumber,str(convertSpelledNumber(spelledNumber)));
+            counter = 1;                    
         convertedValues.append(charStack);
     pprint(convertedValues);
 
@@ -141,9 +120,32 @@ def D1P2():
             counter = 1;
         convertedValues.append(charStack);
 
-    sumStack = 0
+    convertedReversedValues = [];
+    for value in values:
+        charStack = "";
+        for character in reversed(value):
+            charStack += character
+            for spelledNumber in spelledNumbers:
+                specularSpelledNumber = spelledNumber[::-1];
+                if charStack.find(specularSpelledNumber) != -1:
+                    charStack = charStack.replace(specularSpelledNumber,str(counter));
+                counter += 1;
+            counter = 1;
+        convertedReversedValues.append(charStack[::-1]);
+
+    
+    firstDigitList = [];
     for value in convertedValues:
-        calibrationValue = getStringFirstDigit(value) + getStringLastDigit(value);
-        sumStack += int(calibrationValue);
+        firstDigitList.append(getStringFirstDigit(value))
+
+    lastDigitList = [];
+    for value in convertedReversedValues:
+        lastDigitList.append(getStringLastDigit(value));
+
+    calibrationValueList = [];
+    sumStack = 0
+    for firstDigit, lastDigit in zip(firstDigitList, lastDigitList):
+        calibrationValue = firstDigit + lastDigit;    
+        sumStack += int(calibrationValue);   
     print('The sum of all of the calibration values is: ' + str(sumStack));
     return

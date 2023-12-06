@@ -22,3 +22,21 @@ treb7uchet
 In questo esempio, i valori di calibrazione di queste quattro righe sono 12, 38, 15 e 77. Sommandoli si ottiene 142.
 
 Considera l'intero documento di calibrazione. Qual è la somma di tutti i valori di calibrazione?
+
+--- Parte Due ---
+
+Il tuo calcolo non è del tutto corretto. Sembra che alcune delle cifre siano effettivamente scritte con le lettere: uno, due, tre, quattro, cinque, sei, sette, otto e nove contano anche come "cifre" valide.
+
+Munito di questa nuova informazione, ora devi trovare la vera prima e ultima cifra su ciascuna riga. Ad esempio:
+
+two1nine
+eightwothree
+abcone2threexyz
+xtwone3four
+4nineeightseven2
+zoneight234
+7pqrstsixteen
+
+In questo esempio, i valori di calibrazione sono 29, 83, 13, 24, 42, 14 e 76. Sommandoli si ottiene 281.
+
+Qual è la somma di tutti i valori di calibrazione?
