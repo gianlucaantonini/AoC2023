@@ -25,3 +25,21 @@ L'elfo vorrebbe innanzitutto sapere quali partite sarebbero state possibili se l
 Nell'esempio sopra, le partite 1, 2 e 5 sarebbero state possibili se la borsa fosse stata caricata con quella configurazione. Tuttavia, la partita 3 sarebbe stata impossibile perché in un momento l'elfo ti ha mostrato 20 cubi rossi; allo stesso modo, la partita 4 sarebbe stata impossibile perché l'elfo ti ha mostrato 15 cubi blu in una volta sola. Se sommi gli ID delle partite che sarebbero state possibili, ottieni 8.
 
 Determina quali partite sarebbero state possibili se la borsa fosse stata caricata solo con 12 cubi rossi, 13 cubi verdi e 14 cubi blu. Qual è la somma degli ID di quelle partite?
+
+--- Parte Due ---
+
+L'elfo dice che hanno smesso di produrre neve perché non stanno ricevendo acqua! Non è sicuro del motivo per cui l'acqua si è fermata; tuttavia, può mostrarti come arrivare alla fonte d'acqua per controllare di persona. È proprio qui vicino!
+
+Mentre continui la tua passeggiata, l'elfo pone una seconda domanda: in ogni partita che hai giocato, qual è il numero minimo di cubi di ciascun colore che potevano essere nella borsa per rendere possibile la partita?
+
+Considera nuovamente gli esempi di partite precedenti:
+
+Partita 1: 3 blu, 4 rossi; 1 rosso, 2 verdi, 6 blu; 2 verdi
+Partita 2: 1 blu, 2 verdi; 3 verdi, 4 blu, 1 rosso; 1 verde, 1 blu
+Partita 3: 8 verdi, 6 blu, 20 rossi; 5 blu, 4 rossi, 13 verdi; 5 verdi, 1 rosso
+Partita 4: 1 verde, 3 rossi, 6 blu; 3 verdi, 6 rossi; 3 verdi, 15 blu, 14 rossi
+Partita 5: 6 rossi, 1 blu, 3 verdi; 2 blu, 1 rosso, 2 verdi
+
+La potenza di un insieme di cubi è uguale al prodotto dei numeri di cubi rossi, verdi e blu. La potenza dell'insieme minimo di cubi nella partita 1 è 48. Nelle partite 2-5 era rispettivamente 12, 1560, 630 e 36. Sommando queste cinque potenze si ottiene la somma 2286.
+
+Per ogni partita, trova l'insieme minimo di cubi che doveva essere presente. Qual è la somma dei poteri di questi insiemi?
