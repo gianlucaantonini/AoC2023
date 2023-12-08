@@ -270,3 +270,60 @@ def D2P2():
         counterID += 1;    
     print('The sum of the power of these sets is: ' + str(sumStack));
     return
+
+#
+def checkCollision():
+    return
+
+# Day3 Part1
+def debug():
+    # Open the text file
+    with open('inputs/d3p1/puzzleInputExample.txt', 'r') as file:
+        # Read all lines and put lines in a list
+        lines = file.readlines();
+    values = [];
+    # Get clean string by trimming
+    for line in lines:
+        value = line.strip();  
+        values.append(value);
+    
+    mappedSchematic = []
+    for value in values:
+        rows = []
+        for character in value:
+            #get every character of the row
+            rows.append(character)       
+        mappedSchematic.append(rows)
+
+    numbersToCheck = []
+    for individualList in mappedSchematic:
+        print (individualList)
+        numbersToCheckStack = ""
+        for individualCharacter in individualList:
+            if individualCharacter.isdigit():
+                
+        
+
+    #for count in range(0,len(mappedSchematic)):
+    #    print (mappedSchematic[0][count])
+    #pprint(mappedSchematic)
+
+    xMapSize = len(values[0])
+    zMapSize = len(values)
+
+
+
+
+
+    
+
+
+
+
+    
+
+    return
+
+#Day3 Part2
+def D3P1():
+    return
