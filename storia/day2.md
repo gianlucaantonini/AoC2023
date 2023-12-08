@@ -40,6 +40,12 @@ Partita 3: 8 verdi, 6 blu, 20 rossi; 5 blu, 4 rossi, 13 verdi; 5 verdi, 1 rosso
 Partita 4: 1 verde, 3 rossi, 6 blu; 3 verdi, 6 rossi; 3 verdi, 15 blu, 14 rossi
 Partita 5: 6 rossi, 1 blu, 3 verdi; 2 blu, 1 rosso, 2 verdi
 
+Nella partita 1, la partita avrebbe potuto essere giocata con almeno 4 cubi rossi, 2 verdi e 6 blu. Se anche solo un colore avesse avuto un cubo in meno, la partita sarebbe stata impossibile.
+La partita 2 avrebbe potuto essere giocata con un minimo di 1 rosso, 3 verdi e 4 blu.
+La partita 3 deve essere stata giocata con almeno 20 rossi, 13 verdi e 6 blu.
+La partita 4 richiedeva almeno 14 rossi, 3 verdi e 15 blu.
+La partita 5 aveva bisogno di non meno di 6 rossi, 3 verdi e 2 blu nella borsa.
+
 La potenza di un insieme di cubi è uguale al prodotto dei numeri di cubi rossi, verdi e blu. La potenza dell'insieme minimo di cubi nella partita 1 è 48. Nelle partite 2-5 era rispettivamente 12, 1560, 630 e 36. Sommando queste cinque potenze si ottiene la somma 2286.
 
-Per ogni partita, trova l'insieme minimo di cubi che doveva essere presente. Qual è la somma dei poteri di questi insiemi?
+Per ogni partita, trova l'insieme minimo di cubi che doveva essere presente. Qual è la somma delle potenze di questi insiemi?
