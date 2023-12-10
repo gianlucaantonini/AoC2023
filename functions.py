@@ -496,57 +496,40 @@ def debug():
                             #finalResult += int(coord[2]);
                             gearList.append([collision,int(coord[2])]);
                             isValid += 1
-    pprint(gearList);
+    print("gearList:")                        
+    print (gearList);
+    print("")
 
-    sameCoordCounter = 0
-    gearRatio = 0
-    firstRun = bool(True)
-    gearRatios = []
-    savedRatio = 0
-    for gear in gearList:
-        if firstRun == bool(False):
-            if previousGear[0] == gear[0]:
-                gearRatio = int(gear[1]) * int(previousGear[1])
-                previousGear = gear
-                sameCoordCounter += 1
-            else:
-                previousGear = gear
-                sameCoordCounter = 0   
-        else:
-            sameCoordCounter = 0
-        previousGear = gear
-        firstRun = bool(False);
-        if sameCoordCounter == 1:
-            savedRatio = gearRatio
-        if sameCoordCounter < 2:
-            pass
-        else:
-            gearRatios.append(savedRatio);
-        
-        
-    
-    pprint(gearRatios)
-    
-    
+    # Groups consecutive matching values.
+    import itertools
+
+    # estrazione della key (primo elemento dell'input)
+    def extract_key(value):
+        return value[0]
+
+    # itertools.groupby needs data to be sorted first
+    gearList = sorted(gearList, key=extract_key)
+
+    #il codice prende una lista di coppie,
+    #le ordina in base al primo elemento di ciascuna coppia,
+    #le raggruppa in base al primo elemento e costruisce una nuova lista
+    #con il primo elemento come chiave e una lista
+    # dei corrispondenti secondi elementi per ciascun gruppo.
+    result = [
+        [banana,[ananas[1] for ananas in anguria]]
+        for banana, anguria in itertools.groupby(gearList, extract_key)
+    ]
+
+    print("itertools.groupby sorted gearList:")
+    print(result)
+    print("")
 
 
-
-
-        
-        
-
-
-
-
-            
-
-
-    
-  
-        
-    #print(finalResult)
-
-        
-
+    finalResult = 0
+    for gear in result:
+        if len(gear[1]) == 2:
+            gearRatio = int(gear[1][0]) * int(gear[1][1]);
+            finalResult += gearRatio;
+    print(finalResult)
     return
 
