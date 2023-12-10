@@ -1,32 +1,18 @@
 from pprint import pprint
 
-#function for getting the first digit of a string
-def getStringFirstDigit(string):
-    for characters in string:
-        if characters.isdigit():
-            return characters;
-
-#function for getting the last digit of a string
-def getStringLastDigit(string):
-    for characters in reversed(string):
-        if characters.isdigit():
-            return characters;
-
-#function for reading text files
-def getLinesFromTextFile(filePath):
-    # Open the text file
-    with open(filePath, 'r') as file:
-        # Read all lines and put lines in a list
-        lines = file.readlines();
-        values = [];
-        # Get clean string by trimming
-        for line in lines:
-            value = line.strip();  
-            values.append(value);
-    return(values)
-
 # Day 1 Part 1
 def debugD1P1():
+    #function for getting the last digit of a string
+    def getStringLastDigit(string):
+        for characters in reversed(string):
+            if characters.isdigit():
+                return characters; 
+    #function for getting the first digit of a string
+    def getStringFirstDigit(string):
+        for characters in string:
+            if characters.isdigit():
+                return characters;
+   
     # Open the text file
     with open('inputs/d1p1/puzzleInputExample.txt', 'r') as file:
         # Read all lines and put lines in a list
@@ -54,6 +40,17 @@ def debugD1P1():
 
 # Day 1 Part 1
 def D1P1():
+    #function for getting the last digit of a string
+    def getStringLastDigit(string):
+        for characters in reversed(string):
+            if characters.isdigit():
+                return characters; 
+    #function for getting the first digit of a string
+    def getStringFirstDigit(string):
+        for characters in string:
+            if characters.isdigit():
+                return characters;
+
     # Open the text file
     with open('inputs/d1p1/puzzleInput.txt', 'r') as file:
         # Read all lines and put lines in a list
@@ -73,7 +70,25 @@ def D1P1():
 
 # Day 1 Part 2
 def debugD1P2():
-    values = getLinesFromTextFile('inputs/d1p2/puzzleInputExample.txt')
+    #function for getting the last digit of a string
+    def getStringLastDigit(string):
+        for characters in reversed(string):
+            if characters.isdigit():
+                return characters; 
+    #function for getting the first digit of a string
+    def getStringFirstDigit(string):
+        for characters in string:
+            if characters.isdigit():
+                return characters;
+    # Open the text file
+    with open("inputs/d1p2/puzzleInputExample.txt", 'r') as file:
+        # Read all lines and put lines in a list
+        lines = file.readlines();
+        values = [];
+        # Get clean string by trimming
+        for line in lines:
+            value = line.strip();  
+            values.append(value);
     pprint(values);
     spelledNumbers = ['one','two','three','four','five','six','seven','eight','nine'];
     counter = 1;
@@ -105,7 +120,25 @@ def debugD1P2():
 
 # Day 1 Part 2
 def D1P2():
-    values = getLinesFromTextFile('inputs/d1p2/puzzleInput.txt')
+    #function for getting the last digit of a string
+    def getStringLastDigit(string):
+        for characters in reversed(string):
+            if characters.isdigit():
+                return characters; 
+    #function for getting the first digit of a string
+    def getStringFirstDigit(string):
+        for characters in string:
+            if characters.isdigit():
+                return characters;
+    # Open the text file
+    with open("inputs/d1p2/puzzleInput.txt", 'r') as file:
+        # Read all lines and put lines in a list
+        lines = file.readlines();
+        values = [];
+        # Get clean string by trimming
+        for line in lines:
+            value = line.strip();  
+            values.append(value);
     spelledNumbers = ['one','two','three','four','five','six','seven','eight','nine'];
     counter = 1;
     convertedValues = [];
@@ -152,7 +185,15 @@ def D1P2():
 
 # Day 2 Part 1
 def debugD2P1():
-    values = getLinesFromTextFile('inputs/d2p1/puzzleInputExample.txt');
+    # Open the text file
+    with open("inputs/d2p1/puzzleInputExample.txt", 'r') as file:
+        # Read all lines and put lines in a list
+        lines = file.readlines();
+        values = [];
+        # Get clean string by trimming
+        for line in lines:
+            value = line.strip();  
+            values.append(value);
     counterID = 1;
     sumStack = 0;
     for value in values:
@@ -179,7 +220,15 @@ def debugD2P1():
 
 # Day 2 Part 1
 def D2P1():
-    values = getLinesFromTextFile('inputs/d2p1/puzzleInput.txt');
+    # Open the text file
+    with open("inputs/d2p1/puzzleInput.txt", 'r') as file:
+        # Read all lines and put lines in a list
+        lines = file.readlines();
+        values = [];
+        # Get clean string by trimming
+        for line in lines:
+            value = line.strip();  
+            values.append(value);
     counterID = 1;
     sumStack = 0;
     for value in values:
@@ -206,7 +255,15 @@ def D2P1():
 
 # Day 2 Part 2
 def debugD2P2():
-    values = getLinesFromTextFile('inputs/d2p2/puzzleInputExample.txt');
+    # Open the text file
+    with open("inputs/d2p2/puzzleInputExample.txt", 'r') as file:
+        # Read all lines and put lines in a list
+        lines = file.readlines();
+        values = [];
+        # Get clean string by trimming
+        for line in lines:
+            value = line.strip();  
+            values.append(value);    
     counterID = 1;
     sumStack = 0;
     for value in values:
@@ -243,7 +300,15 @@ def debugD2P2():
 
 # Day 2 Part 2
 def D2P2():
-    values = getLinesFromTextFile('inputs/d2p2/puzzleInput.txt');
+    # Open the text file
+    with open("inputs/d2p2/puzzleInput.txt", 'r') as file:
+        # Read all lines and put lines in a list
+        lines = file.readlines();
+        values = [];
+        # Get clean string by trimming
+        for line in lines:
+            value = line.strip();  
+            values.append(value);
     counterID = 1;
     sumStack = 0;
     for value in values:
@@ -274,7 +339,7 @@ def D2P2():
 #Day3 Part1
 def D3P1():
     #Iniziamo mappando lo schema dal file di testo
-    with open('inputs/d3p1/puzzleInput.txt', 'r') as file:
+    with open('inputs/d3p1p2/puzzleInput.txt', 'r') as file:
         lines = file.readlines();
     values = [];
     for line in lines:
@@ -350,3 +415,104 @@ def D3P1():
                             isValid += 1
     print("The sum of all of the part numbers is: " + str(finalResult));
     return
+
+# Day 3 Part 2
+def debug():
+    #Iniziamo mappando lo schema dal file di testo
+    with open('inputs/d3p1p2/puzzleInputExample.txt', 'r') as file:
+        lines = file.readlines();
+    values = [];
+    for line in lines:
+        value = line.strip();  
+        values.append(value);    
+    mappedSchematic = []
+    for value in values:
+        rows = []
+        for character in value:
+            rows.append(character)       
+        mappedSchematic.append(rows)
+    #Usiamo la mappa per trovare le coordinate dei numeri da controllare
+    numbersToCheck = []
+    locationTracker = [0,0]
+    for individualList in mappedSchematic:
+        numbersToCheckStack = "";
+        for individualCharacter in individualList:
+            if locationTracker[0] != len(individualList) -1:
+                nextCharacter = mappedSchematic[locationTracker[1]][locationTracker[0]+1]
+            else:
+                nextCharacter = "."
+            if individualCharacter.isdigit():
+                numbersToCheckStack += individualCharacter;
+                if nextCharacter.isdigit() == bool(False):
+                    numbersToCheckStack += "," 
+            locationTracker[0] += 1    
+        locationTracker[0] = 0
+        locationTracker[1] += 1
+        preparedNTC = numbersToCheckStack[:-1]
+        numbersToCheck.append(preparedNTC.split(","));
+    locationTracker = [0,0]
+    # Una volta ottenuta la lista dei numeri la usiamo per trovare le coordinate
+    coordQueque = []
+    for individualNumberList in numbersToCheck:
+        for setOfNumbers in individualNumberList:
+            dotPhrase = ""
+            for character in str(setOfNumbers):
+                dotPhrase += ".";
+            x = values[locationTracker[1]].find(str(setOfNumbers));
+            z = locationTracker[1];
+            number = setOfNumbers;
+            values[locationTracker[1]] = values[locationTracker[1]].replace(str(setOfNumbers),dotPhrase,1);
+            if setOfNumbers != "":
+                coordQueque.append([z,x,number]);
+        locationTracker[1] += 1
+    # Definiamo la lista dei simboli e la grandezza della mappa
+    #symbols = ["!","@","#","$","%","^","&","*","=",")","-","+","/"];
+    symbols = ["*"]
+    xMapSize = len(values[0])
+    zMapSize = len(values)
+    finalResult = 1
+    gearList = [];
+    for coord in coordQueque:
+        shiftValue = 0
+        isValid = 0
+        for number in coord[2]:
+            # Definiamo le aree di collisione
+            origin = [coord[0],coord[1] + shiftValue];
+            right = [origin[0],origin[1] + 1];
+            left = [origin[0],origin[1] - 1];
+            up = [origin[0] - 1,origin[1]];
+            upR = [origin[0] - 1,origin[1] + 1];
+            upL = [origin[0] - 1,origin[1] - 1];
+            down = [origin[0] + 1,origin[1]];
+            downR = [origin[0] + 1,origin[1] + 1];
+            downL = [origin[0] + 1,origin[1] - 1];
+            shiftValue += 1;
+            collisions = [right,left,up,down,upL,upR,downL,downR];
+            for collision in collisions:
+                # Evitiamo l'out of range e controlliamo le collisioni
+                if (collision[0] <= zMapSize - 1) and (collision[1] <= xMapSize - 1) and (collision[0] >= 0) and (collision[1] >= 0):
+                    if str(mappedSchematic[collision[0]][collision[1]]) in symbols:
+                        if isValid == 0:
+                            #finalResult += int(coord[2]);
+                            gearList.append([collision,int(coord[2])]);
+                            isValid += 1
+    pprint(gearList);
+
+
+        
+
+
+
+
+            
+
+
+    
+  
+        
+    #print(finalResult)
+
+        
+
+    return
+
