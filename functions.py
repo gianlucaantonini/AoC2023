@@ -498,7 +498,41 @@ def debug():
                             isValid += 1
     pprint(gearList);
 
+    sameCoordCounter = 0
+    gearRatio = 0
+    firstRun = bool(True)
+    gearRatios = []
+    savedRatio = 0
+    for gear in gearList:
+        if firstRun == bool(False):
+            if previousGear[0] == gear[0]:
+                gearRatio = int(gear[1]) * int(previousGear[1])
+                previousGear = gear
+                sameCoordCounter += 1
+            else:
+                previousGear = gear
+                sameCoordCounter = 0   
+        else:
+            sameCoordCounter = 0
+        previousGear = gear
+        firstRun = bool(False);
+        if sameCoordCounter == 1:
+            savedRatio = gearRatio
+        if sameCoordCounter < 2:
+            pass
+        else:
+            gearRatios.append(savedRatio);
+        
+        
+    
+    pprint(gearRatios)
+    
+    
 
+
+
+
+        
         
 
 
