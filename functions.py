@@ -271,105 +271,7 @@ def D2P2():
     print('The sum of the power of these sets is: ' + str(sumStack));
     return
 
-
-
-# Day3 Part1
-def debugD3P1():
-    # Open the text file
-    with open('inputs/d3p1/puzzleInputExample.txt', 'r') as file:
-        # Read all lines and put lines in a list
-        lines = file.readlines();
-    values = [];
-    # Get clean string by trimming
-    for line in lines:
-        value = line.strip();  
-        values.append(value);    
-    mappedSchematic = []
-    for value in values:
-        rows = []
-        for character in value:
-            #get every character of the row
-            rows.append(character)       
-        mappedSchematic.append(rows)
-    numbersToCheck = []
-    locationTracker = [0,0]
-    for individualList in mappedSchematic:       
-        print (individualList)
-        numbersToCheckStack = ""        
-        for individualCharacter in individualList:
-            failSafeRange = locationTracker[0] + 1
-            if failSafeRange == len(individualList):
-                failSafeRange = locationTracker[0] - 1
-            nextCharacter = mappedSchematic[locationTracker[1]][failSafeRange]
-            if len(individualList) == locationTracker[0]:
-                nextCharacter = bool(False);
-            if nextCharacter == bool(False):
-                pass
-            else:
-                if individualCharacter.isdigit():
-                    numbersToCheckStack += individualCharacter;
-                    
-                    if nextCharacter.isdigit() == bool(False):
-                        numbersToCheckStack += "," 
-            #print(locationTracker[0])    
-            locationTracker[0] += 1                
-        locationTracker[0] = 0
-        #print(locationTracker[1])
-        locationTracker[1] += 1
-        preparedNTC = numbersToCheckStack[:-1]
-        numbersToCheck.append(preparedNTC.split(","));
-    #pprint(numbersToCheck)
-    locationTracker = [0,0]
-    coordQueque = []
-    buffer = ""
-    for individualNumberList in numbersToCheck:
-        for setOfNumbers in individualNumberList:
-            dotPhrase = ""
-            for character in str(setOfNumbers):
-                dotPhrase += ".";
-            x = values[locationTracker[1]].find(str(setOfNumbers));
-            z = locationTracker[1];
-            number = setOfNumbers;
-            values[locationTracker[1]] = values[locationTracker[1]].replace(str(setOfNumbers),dotPhrase,1);
-            #print(values[locationTracker[1]])
-            if setOfNumbers != "":
-                coordQueque.append([z,x,number]);
-            #print(value)
-        locationTracker[1] += 1
-        #buffer = "";
-    pprint(coordQueque);
-    #print(mappedSchematic[0][9])
-    symbols = ["*","#","+","$"];
-    xMapSize = len(values[0])
-    zMapSize = len(values)
-    finalResult = 0
-    for coord in coordQueque:
-        shiftValue = 0
-        isValid = bool(False);
-        for number in coord[2]:
-            origin = [coord[0],coord[1] + shiftValue];
-            right = [origin[0],origin[1] + 1];
-            left = [origin[0],origin[1] - 1];
-            up = [origin[0] - 1,origin[1]];
-            upR = [origin[0] - 1,origin[1] + 1];
-            upL = [origin[0] - 1,origin[1] - 1];
-            down = [origin[0] + 1,origin[1]];
-            downR = [origin[0] + 1,origin[1] + 1];
-            downL = [origin[0] + 1,origin[1] - 1];
-            shiftValue += 1;   
-            collisions = [right,left,up,down,upL,upR,downL,downR];
-            for collision in collisions:
-                #avoid out of range operations
-                if (collision[0] <= zMapSize - 1) and (collision[1] <= xMapSize - 1) and (collision[0] >= 0) and (collision[1] >= 0):
-                    if mappedSchematic[collision[0]][collision[1]] in symbols:
-                        isValid = bool(True)
-                        print(collision)                  
-        if isValid:
-            finalResult += int(coord[2]);
-    print("The sum of all of the part numbers in the engine schematic is: " + str(finalResult));
-    return
-
-#Day3 Part2
+#Day3 Part1
 def D3P1():
     #Iniziamo mappando lo schema dal file di testo
     with open('inputs/d3p1/puzzleInput.txt', 'r') as file:
@@ -390,21 +292,14 @@ def D3P1():
     for individualList in mappedSchematic:
         numbersToCheckStack = "";
         for individualCharacter in individualList:
-            failSafeRange = locationTracker[0] + 1
-            if failSafeRange == len(individualList):
-                failSafeRange = locationTracker[0] - 1
-            # determiniamo quale sara il prossimo carattere
-            nextCharacter = mappedSchematic[locationTracker[1]][failSafeRange]
-            if len(individualList) == locationTracker[0]:
-                nextCharacter = bool(False);
-            if nextCharacter == bool(False):
-                pass
+            if locationTracker[0] != len(individualList) -1:
+                nextCharacter = mappedSchematic[locationTracker[1]][locationTracker[0]+1]
             else:
-                # Andiamo a formare la lista dei numeri da controllare
-                if individualCharacter.isdigit():
-                    numbersToCheckStack += individualCharacter;
-                    if nextCharacter.isdigit() == bool(False):
-                        numbersToCheckStack += "," 
+                nextCharacter = "."
+            if individualCharacter.isdigit():
+                numbersToCheckStack += individualCharacter;
+                if nextCharacter.isdigit() == bool(False):
+                    numbersToCheckStack += "," 
             locationTracker[0] += 1    
         locationTracker[0] = 0
         locationTracker[1] += 1
@@ -426,13 +321,13 @@ def D3P1():
                 coordQueque.append([z,x,number]);
         locationTracker[1] += 1
     # Definiamo la lista dei simboli e la grandezza della mappa
-    symbols = ["*","#","+","$"];
+    symbols = ["!","@","#","$","%","^","&","*","=",")","-","+","/"];
     xMapSize = len(values[0])
     zMapSize = len(values)
     finalResult = 0
     for coord in coordQueque:
         shiftValue = 0
-        isValid = bool(False);
+        isValid = 0
         for number in coord[2]:
             # Definiamo le aree di collisione
             origin = [coord[0],coord[1] + shiftValue];
@@ -449,10 +344,9 @@ def D3P1():
             for collision in collisions:
                 # Evitiamo l'out of range e controlliamo le collisioni
                 if (collision[0] <= zMapSize - 1) and (collision[1] <= xMapSize - 1) and (collision[0] >= 0) and (collision[1] >= 0):
-                    if mappedSchematic[collision[0]][collision[1]] in symbols:
-                        isValid = bool(True)
-        # Facciamo passare solamente i numeri che hanno rilevato una collisione
-        if isValid:
-            finalResult += int(coord[2]);
-    print("The sum of all of the part numbers in the engine schematic is: " + str(finalResult));
+                    if str(mappedSchematic[collision[0]][collision[1]]) in symbols:
+                        if isValid == 0:
+                            finalResult += int(coord[2]);
+                            isValid += 1
+    print("The sum of all of the part numbers is: " + str(finalResult));
     return
