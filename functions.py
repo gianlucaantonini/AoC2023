@@ -417,7 +417,7 @@ def D3P1():
     return
 
 # Day 3 Part 2
-def debug():
+def D3P2():
     #Iniziamo mappando lo schema dal file di testo
     with open('inputs/d3p1p2/puzzleInputExample.txt', 'r') as file:
         lines = file.readlines();
@@ -531,5 +531,43 @@ def debug():
             gearRatio = int(gear[1][0]) * int(gear[1][1]);
             finalResult += gearRatio;
     print(finalResult)
+    return
+
+# Day 4 Part 1
+def debug():
+    # Open the text file
+    with open("inputs/d4p1/puzzleInputExample.txt", 'r') as file:
+        # Read all lines and put lines in a list
+        lines = file.readlines();
+        values = [];
+        # Get clean string by trimming
+        for line in lines:
+            value = line.strip();  
+            values.append(value);    
+
+    winningNumbersList = []
+    ownedNumbersList = []
+    for value in values:
+        cardIndexSplitted = value.split(": ");
+        setOfCards = cardIndexSplitted[1].split(" | ");
+
+        winningNumbers = []
+        winningNumbersToClean = setOfCards[0].split(" ")    
+        for number in winningNumbersToClean:
+            if number != "":
+                winningNumbers.append(number)
+        winningNumbersList.append(winningNumbers)
+        
+        ownedNumbers = []
+        ownedNumbersToClean = setOfCards[1].split(" ")
+        for number in ownedNumbersToClean:
+            if number != "":
+                ownedNumbers.append(number)
+        ownedNumbersList.append(ownedNumbers) 
+    
+    pprint(winningNumbers)
+    pprint(ownedNumbers)
+
+    
     return
 
