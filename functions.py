@@ -545,28 +545,50 @@ def debug():
             value = line.strip();  
             values.append(value);    
 
-    winningNumbersList = []
-    ownedNumbersList = []
+    yourSet = []
+    winningSet = []
     for value in values:
         cardIndexSplitted = value.split(": ");
         setOfCards = cardIndexSplitted[1].split(" | ");
-
-        winningNumbers = []
-        winningNumbersToClean = setOfCards[0].split(" ")    
-        for number in winningNumbersToClean:
-            if number != "":
-                winningNumbers.append(number)
-        winningNumbersList.append(winningNumbers)
-        
-        ownedNumbers = []
-        ownedNumbersToClean = setOfCards[1].split(" ")
-        for number in ownedNumbersToClean:
-            if number != "":
-                ownedNumbers.append(number)
-        ownedNumbersList.append(ownedNumbers) 
+        rightSet = setOfCards[1].split(" ");
+        yourSet.append(rightSet);
+        leftSet = setOfCards[0].split(" ");
+        winningSet.append(leftSet);
     
-    pprint(winningNumbers)
-    pprint(ownedNumbers)
+    cleanSet = []
+    for sets in yourSet:
+        cleanNumbers = []
+        for number in sets:
+            if number != '':
+                cleanNumbers.append(number)
+        cleanSet.append(cleanNumbers)
+    yourSet = cleanSet;
+
+    cleanSet = []
+    for sets in winningSet:
+        cleanNumbers = []
+        for number in sets:
+            if number != '':
+                cleanNumbers.append(number)
+        cleanSet.append(cleanNumbers)
+    winningSet = cleanSet;
+
+    finalList = []
+    for set0, set1 in zip(yourSet,winningSet):
+        finalList.append([set0,set1]);
+    
+    points = 0
+    for cards in finalList:
+        cardPoint = 0
+        for number in cards[0]:
+            if number in cards[1]:
+                if cardPoint == 0:
+                    cardPoint = 1;
+                else:
+                    newValue = cardPoint * 2;
+                    cardPoint = newValue;
+        points += cardPoint;
+    print(points)
 
     
     return
